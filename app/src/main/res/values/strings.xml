@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">NoteMarket</string>
+
+    <string name="hint_user_id">User ID</string>
+    <string name="get_custom_token">Get Token</string>
+    <string name="sign_in">Entrar</string>
+    <string name="create_account">Criar conta</string>
+    <string name="sign_out">Sair</string>
+    <string name="verify_email">Verificar Email</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="loading">Carregando…</string>
+    <string name="custom_token">Custom Token</string>
+    <string name="signed_in">Sessão iniciada</string>
+    <string name="signed_out">Sessão encerrada</string>
+    <string name="token_null">Token: null</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Senha</string>
+    <string name="desc_firebase_lockup">Firebase logo and name</string>
+    <string name="auth_failed">Autenticação falhou</string>
+    <string name="start_phone_auth">Start</string>
+    <string name="verify_phone_auth">Verify</string>
+    <string name="resend_phone_auth">Resend</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_verification_code">Código de verificação</string>
+    <string name="status_code_sent">Código enviado</string>
+    <string name="status_verification_failed">Verificação falhou</string>
+    <string name="status_verification_succeeded">Verificado com sucesso</string>
+    <string name="status_sign_in_failed">Falha ao entrar</string>
+    <string name="instant_validation">(instant validation)</string>
+    <string name="emailpassword_status_fmt">Usuário do e-mail: %1$s (verificado: %2$b)</string>
+    <string name="emailpassword_title_text">Email e Senha</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+    <string name="firebase_user_management">Firebase User Management</string>
+    <string name="required_field">obrigatório</string>
+    <string name="sending_verification_email">Enviando verificação de email</string>
+    <string name="sent_verification_failed">Falha ao enviar verificação de email</string>
+    <string name="sent_verification_to">Verificação de email enviada para&#160;</string>
+    <string name="user_create">Usuário cadastrado com sucesso</string>
+    <string name="verification_email_account">Endereço de email já cadastrado</string>
+    <string name="msg_verification_email_account_1">Favor acessar seu e-mail:&#160;</string>
+    <string name="msg_verification_email_account_2">1 - Localize na caixa de entrada ou lixo eletrônico o email: [Verify your e-mail for NoteMarket]. Abra e clique no link de verificação para confirmar seu cadastro</string>
+    <string name="msg_verification_email_account_3">2 - Depois faça login novamente na aplicação</string>
+    <string name="welcome">Bem Vindo!!</string>
+    <string name="create_list">Criar lista</string>
+    <string name="item">Item</string>
+    <string name="add_item">Adicionar Item</string>
+
+</resources>
