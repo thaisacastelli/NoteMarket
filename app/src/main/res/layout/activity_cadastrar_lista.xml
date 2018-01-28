@@ -2,57 +2,126 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutTela"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.br.notemarket.CadastrarListaActivity">
+    tools:context="com.br.notemarket.activity.CadastrarListaActivity">
 
-    <EditText
-        android:id="@+id/editVlItem"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/tvLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_list"
+        android:textColor="@color/preto"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bAddItem"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/add_item"
-        android:textSize="25sp"
+    <TextView
+        android:id="@+id/tvVlLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:text=""
+        android:textColor="@color/preto"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editVlItem" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvLista"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editVlItemJaExistente"
+        android:id="@+id/editVlLista"
+        style="?edittext"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bAddItem" />
+        android:layout_marginTop="16dp"
+        android:hint="@string/lbl_listName"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:gravity="left"
+        app:layout_constraintEnd_toStartOf="@+id/bOkLista"
+        app:layout_constraintStart_toEndOf="@+id/tvLista"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bRecuperItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!--android:listSelector="@color/azul"-->
+    <ListView
+        android:id="@+id/listViewItensAdicionados"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Button"
+        android:layout_marginTop="8dp"
+        android:choiceMode="multipleChoice"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editVlItemJaExistente" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLista" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatActionButtonExcluirItemLista"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="8dp"
+        android:onClick="clickExcluirItemLista"
+        android:src="@android:drawable/ic_delete"
+        android:tint="@color/branco"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/floatActionButtonAdicItem"
+        app:pressedTranslationZ="12dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatActionButtonAdicItem"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="8dp"
+        android:onClick="mostrarDialogAdicItem"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@color/branco"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatActionButtonSalvarLista"
+        app:pressedTranslationZ="12dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatActionButtonSalvarLista"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="8dp"
+        android:onClick="criarLista"
+        android:src="@android:drawable/ic_menu_save"
+        android:tint="@color/branco"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:pressedTranslationZ="12dp" />
+
+    <Button
+        android:id="@+id/bOkLista"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/lbl_ok"
+        android:textColor="@color/branco"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

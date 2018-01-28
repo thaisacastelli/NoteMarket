@@ -41,7 +41,23 @@
     <string name="msg_verification_email_account_2">1 - Locate in your inbox or junk email: [Verify your email for NoteMarket]. Open and click on the verification link to confirm your registration</string>
     <string name="msg_verification_email_account_3">2 - Then sign back in to the app</string>
     <string name="welcome">Welcome!!</string>
-    <string name="create_list">Create list</string>
+    <string name="create_list">Save list</string>
+    <string name="delete_list">Delete list</string>
     <string name="item">Item</string>
     <string name="add_item">Add Item</string>
+    <string name="lbl_list">List:</string>
+    <string name="lbl_listRegistered">Lists already registered:</string>
+    <string name="lbl_listName">List name</string>
+    <string name="lbl_return">Return</string>
+    <string name="lbl_msgEnterNameList">Enter a name for the list</string>
+    <string name="lbl_msgEnterItemList">Add items for the list</string>
+    <string name="lbl_ok">OK</string>
+    <string name="lbl_msgErrorOpenList">Error opening list</string>
+    <string name="lbl_msgErrorSaveList">Error saving list</string>
+    <string name="lbl_msgErrorRemoveList">Error deleting list</string>
+    <string name="lbl_msgErrorRemoveItemList">Error deleting item from list</string>
+    <string name="lbl_msgSucessRemoveList">Successfully deleted list</string>
+    <string name="lbl_msgSucessCreateList">List created successfully</string>
+    <string name="lbl_login">login</string>
+
 </resources>

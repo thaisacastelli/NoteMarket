@@ -1,8 +1,10 @@
-package com.br.notemarket;
+package com.br.notemarket.activity;
 
 import android.app.ProgressDialog;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
+
+import com.br.notemarket.R;
 
 public class BaseActivity extends AppCompatActivity {
 

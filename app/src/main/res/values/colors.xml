@@ -7,4 +7,9 @@
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+    <color name="cor_desabilitado">#c9c8c8</color>
+    <color name="azul">#0774b4</color>
+    <color name="color_fields">#ececec</color>
+    <color name="azul_transp_70_perc">#4D0000FF</color>
 </resources>

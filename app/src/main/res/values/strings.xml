@@ -37,12 +37,28 @@
     <string name="sent_verification_to">Verificação de email enviada para&#160;</string>
     <string name="user_create">Usuário cadastrado com sucesso</string>
     <string name="verification_email_account">Endereço de email já cadastrado</string>
-    <string name="msg_verification_email_account_1">Favor acessar seu e-mail:&#160;</string>
+    <string name="msg_verification_email_account_1">Favor acessar seu email:&#160;</string>
     <string name="msg_verification_email_account_2">1 - Localize na caixa de entrada ou lixo eletrônico o email: [Verify your e-mail for NoteMarket]. Abra e clique no link de verificação para confirmar seu cadastro</string>
     <string name="msg_verification_email_account_3">2 - Depois faça login novamente na aplicação</string>
     <string name="welcome">Bem Vindo!!</string>
-    <string name="create_list">Criar lista</string>
+    <string name="create_list">Salvar lista</string>
+    <string name="delete_list">Excluir lista</string>
     <string name="item">Item</string>
     <string name="add_item">Adicionar Item</string>
+    <string name="lbl_list">Lista:</string>
+    <string name="lbl_listRegistered">Listas já cadastradas:</string>
+    <string name="lbl_listName">Nome da lista</string>
+    <string name="lbl_return">Retornar</string>
+    <string name="lbl_msgEnterNameList">Informe um nome para lista</string>
+    <string name="lbl_msgEnterItemList">Adicione itens para lista</string>
+    <string name="lbl_ok">OK</string>
+    <string name="lbl_msgErrorOpenList">Erro ao abrir lista</string>
+    <string name="lbl_msgErrorSaveList">Erro ao salvar lista</string>
+    <string name="lbl_msgErrorRemoveList">Erro ao excluir lista</string>
+    <string name="lbl_msgErrorRemoveItemList">Erro ao excluir item da lista</string>
+    <string name="lbl_msgSucessRemoveList">Lista excluída com sucesso</string>
+    <string name="lbl_msgSucessCreateList">Lista criada com sucesso</string>
+    <string name="lbl_login">login</string>
+
 
 </resources>

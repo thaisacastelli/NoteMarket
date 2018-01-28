@@ -4,6 +4,6 @@
 
     <item
         android:id="@+id/login"
-        android:title="Login"
+        android:title="@string/lbl_login"
         app:showAsAction="ifRoom"/>
 </menu>

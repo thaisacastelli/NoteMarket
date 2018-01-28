@@ -1,6 +1,8 @@
-package com.br.notemarket;
+package com.br.notemarket.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.br.notemarket.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,9 +35,7 @@ public class LoginActivity extends BaseActivity implements
     private Button   bCriarConta;
     private Button   bVerificarEmail;
     private ConstraintLayout layoutTela;
-
-    //private FirebaseAuth mAuth;
-    //private FirebaseAuth.AuthStateListener mAuthListener;
+    private SharedPreferences nPrefs;
     private static final String TAG = "PrincipalAuth";
 
     @Override
@@ -58,6 +59,8 @@ public class LoginActivity extends BaseActivity implements
         bSair.setOnClickListener(this);
         bVerificarEmail.setOnClickListener(this);
 
+        nPrefs = getApplicationContext().getSharedPreferences("note_market_prefs", 0);
+
         PrincipalActivity.mAuth = FirebaseAuth.getInstance();
     }
 
@@ -68,7 +71,22 @@ public class LoginActivity extends BaseActivity implements
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         FirebaseUser currentUser = PrincipalActivity.mAuth.getCurrentUser();
-        updateUI(currentUser);
+
+        if (currentUser == null) {
+            editVlEmail.setText(nPrefs.getString("email", ""));
+            updateUI(null);
+        } else {
+            if (currentUser.isEmailVerified()) {
+                tvStatus.setText(getString(R.string.signed_in));
+                editVlEmail.setText(currentUser.getEmail());
+                editVlSenha.setVisibility(View.GONE);
+                bCriarConta.setVisibility(View.GONE);
+                bEntrar.setVisibility(View.GONE);
+                bSair.setVisibility(View.VISIBLE);
+                bVerificarEmail.setText(getString(R.string.lbl_return));
+                bVerificarEmail.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void  createAccount(String email, String password) {
@@ -200,10 +218,11 @@ public class LoginActivity extends BaseActivity implements
                 bSair.setVisibility(View.VISIBLE);
                 bVerificarEmail.setVisibility(View.VISIBLE);
             } else {
-               //Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
-               //i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-               //startActivity(i);
-               finish();
+               /*guardar email do usuario para proxima vez que abrir o app já trazer ele como sugestao no campo de email para login*/
+               SharedPreferences.Editor edit = nPrefs.edit();
+               edit.putString("email", user.getEmail());
+               edit.apply();
+               irTelaPrincipal();
             }
         } else {
             tvStatus.setText(R.string.signed_out);
@@ -211,9 +230,11 @@ public class LoginActivity extends BaseActivity implements
             bCriarConta.setVisibility(View.VISIBLE);
             bEntrar.setVisibility(View.VISIBLE);
             editVlEmail.setVisibility(View.VISIBLE);
+            editVlSenha.setText("");
             editVlSenha.setVisibility(View.VISIBLE);
             bSair.setVisibility(View.GONE);
             bVerificarEmail.setVisibility(View.GONE);
+            bVerificarEmail.setText(getString(R.string.verify_email));
         }
     }
 
@@ -227,7 +248,11 @@ public class LoginActivity extends BaseActivity implements
         } else if (i == R.id.buttonSairSessao) {
             signOut();
         } else if (i == R.id.buttonVerificarEmail) {
-            sendEmailVerification();
+            if (bVerificarEmail.getText().toString().equals(getString(R.string.lbl_return))) {
+                irTelaPrincipal();
+            } else {
+                sendEmailVerification();
+            }
         } else if (i == R.id.layoutTela) {
             //ocultar teclado aberto qdo se clicou em algum dos edits
             ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editVlEmail.getWindowToken(), 0);
@@ -238,4 +263,10 @@ public class LoginActivity extends BaseActivity implements
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    private void irTelaPrincipal() {
+        startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+        finish();
+    }
+
 }

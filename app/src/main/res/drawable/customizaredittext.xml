@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- qdo o edittext estiver com o foco e estiver habilitado, ficara com a borda dessa cor p sinalizar -->
+    <item android:state_focused="true"
+        android:state_enabled="true">
+        <shape>
+            <stroke
+                android:width="2dp"
+                android:color="@color/azul" />
+            <solid android:color="@color/color_fields" />
+            <padding android:left="4dp" />
+        </shape>
+
+    </item>
+
+    <!-- cor cinza para o edit qdo estiver desabilitado -->
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="@color/cor_desabilitado" />
+            <padding android:left="4dp" />
+        </shape>
+
+    </item>
+
+    <!-- cor padrao do edittext qdo nao estiver com o foco nele. O padding left é para dar um espaço dentro do edit em
+    relação a sua extremidade/borda, para que o cursor nao fique em cima da sua borda, fique um pouco mais p dentro do edit
+    para que ele apareca piscando no layout -->
+    <item>
+        <shape>
+            <solid android:color="@color/color_fields" />
+            <padding android:left="4dp" />
+        </shape>
+
+    </item>
+</selector>
